@@ -48,11 +48,6 @@ export async function chromeExtensionGeneratorGenerator(
   // #endregion
 
   await formatFiles(tree);
-
-  console.log('Add this script to your package.json:\n');
-  console.log(
-    `"${options.name}-ext:dev": "nx run-many --target=build --projects=${options.name}-devtools-panel,${options.name}-options,${options.name}-popup,${options.name}-background-script,${options.name}-content-script --configuration=development --watch --parallel 5"`
-  );
 }
 
 export default chromeExtensionGeneratorGenerator;
