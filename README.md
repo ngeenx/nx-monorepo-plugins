@@ -19,7 +19,7 @@ This repository contains a collection of plugins for the Nx monorepo tool. The p
 
 ## Usage
 
-Create `tools/external-plugins` directory in the root of your Nx workspace and copy this repository into it with [git submodule](https://git-scm.com/docs/git-submodule) or [git subtree](https://www.atlassian.com/git/tutorials/git-subtree) commands.
+Create `tools/external-plugins` directory in the root of your Nx workspace and copy this repository into it with [git submodule](https://git-scm.com/docs/git-submodule) (*also, see [Working with submodules](https://github.blog/open-source/git/working-with-submodules/)*) or [git subtree](https://www.atlassian.com/git/tutorials/git-subtree) commands.
 
 ```bash
 git submodule add https://github.com/ngeenx/nx-monorepo-plugins.git tools/external-plugins
