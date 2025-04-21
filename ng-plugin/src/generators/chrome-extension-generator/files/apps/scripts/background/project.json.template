@@ -1,0 +1,59 @@
+{
+  "$schema": "<%= rootOffset %>/../node_modules/nx/schemas/project-schema.json",
+  "name": "<%= name %>-background-script",
+  "projectType": "application",
+  "sourceRoot": "apps/chrome-extensions/<%= name %>/scripts/background/src",
+  "tags": [
+    "type:script"
+  ],
+  "targets": {
+    "build": {
+      "executor": "@nx/webpack:webpack",
+      "outputs": [
+        "{options.outputPath}"
+      ],
+      "defaultConfiguration": "production",
+      "options": {
+        "outputPath": "chrome-extensions/<%= name %>/scripts/background",
+        "compiler": "babel",
+        "index": "",
+        "main": "apps/chrome-extensions/<%= name %>/scripts/background/src/main.ts",
+        "tsConfig": "apps/chrome-extensions/<%= name %>/scripts/background/tsconfig.app.json",
+        "generateIndexHtml": false,
+        "webpackConfig": "apps/chrome-extensions/<%= name %>/scripts/background/webpack.config.js"
+      },
+      "configurations": {
+        "production": {
+          "optimization": true,
+          "outputHashing": "none",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": false,
+          "vendorChunk": false
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nx/webpack:dev-server",
+      "options": {
+        "buildTarget": "<%= name %>-background-script:build"
+      },
+      "configurations": {
+        "production": {
+          "buildTarget": "<%= name %>-background-script:build:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": [
+        "{options.outputFile}"
+      ],
+      "options": {
+        "lintFilePatterns": [
+          "apps/chrome-extensions/<%= name %>/scripts/background/**/*.ts"
+        ]
+      }
+    }
+  }
+}

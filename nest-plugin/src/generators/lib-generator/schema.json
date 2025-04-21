@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/schema",
+  "$id": "LibGenerator",
+  "title": "",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Name of the library. It should be a valid npm package name.",
+      "pattern": "^ngn-[a-z0-9-]+$",
+      "$default": {
+        "$source": "argv",
+        "index": 0
+      },
+      "x-prompt": "What project name would you like to use? (It must start with 'ngn-' prefix)"
+    },
+    "type": {
+      "type": "string",
+      "description": "Client library type in: common, admin, platform",
+      "$default": {
+        "$source": "argv",
+        "index": 1
+      },
+      "x-prompt": {
+        "message": "Which type of library would you like to generate?",
+        "type": "list",
+        "items": [
+          {
+            "value": "admin/features",
+            "label": "✴️ admin/features      [Admin specific features.]"
+          },
+          {
+            "value": "platform/features",
+            "label": "✴️ platform/features   [Platform specific features.]"
+          }
+        ]
+      },
+      "x-priority": "important"
+    },
+    "initialModuleName": {
+      "type": "string",
+      "description": "Name of first module.",
+      "pattern": "^[a-z-]+$",
+      "$default": {
+        "$source": "argv",
+        "index": 2
+      },
+      "x-prompt": "What is the initial module name? (in ^[a-z-]+$ format)",
+      "x-priority": "important"
+    }
+  },
+  "required": ["name", "type", "initialModuleName"]
+}

@@ -1,0 +1,9 @@
+{
+  "generators": {
+    "custom-generator": {
+      "factory": "./src/generators/custom-gen/custom-generator",
+      "schema": "./src/generators/custom-generator/schema.json",
+      "description": "Custom generator generator"
+    }
+  }
+}

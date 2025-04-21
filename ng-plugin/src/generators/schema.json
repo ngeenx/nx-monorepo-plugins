@@ -1,0 +1,105 @@
+{
+  "$schema": "https://json-schema.org/schema",
+  "$id": "LibGenerator",
+  "title": "Client Lib Generator",
+  "description": "This generator creates a new client library. It is used to create shared libraries, platform libraries, and admin libraries.",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Name of the library. It should be a valid npm package name.",
+      "pattern": "^ngn-[a-z0-9-]+$",
+      "$default": {
+        "$source": "argv",
+        "index": 0
+      },
+      "x-prompt": "What project name would you like to use? (It must start with 'ngn-' prefix)"
+    },
+    "type": {
+      "type": "string",
+      "description": "Client library type in: features, platform, shared",
+      "$default": {
+        "$source": "argv",
+        "index": 1
+      },
+      "x-prompt": {
+        "message": "Which type of library would you like to generate?",
+        "type": "list",
+        "items": [
+          {
+            "value": "shared/ui",
+            "label": "✴️ shared/ui           [Shared UI libs, e.g. ngn-ui-x. Can be used in platform or admin apps. Sharing level 1.]"
+          },
+          {
+            "value": "shared/util",
+            "label": "✴️ shared/util         [Shared util libs, e.g. ngn-x-utils. Can be used in platform or admin apps. Sharing level 1.]"
+          },
+          {
+            "value": "features",
+            "label": "✴️ features            [Shared general libs, e.g. ngn-monaco-editor. Can be used in platform or admin apps. Sharing level 2.]"
+          },
+          {
+            "value": "platform/features",
+            "label": "✴️ platform/features   [Platform specific feature libs, e.g. ngn-flame-board-view. Can be used in platform apps. Sharing level 3.]"
+          },
+          {
+            "value": "platform/shared",
+            "label": "✴️ platform/shared     [Platform specific shared libs, e.g. <to be filled>. Share level 3.]"
+          },
+          {
+            "value": "admin",
+            "label": "... Admin specific libs, e.g. ngn-admin-ui. Can be used in admin apps. Share level 3. ..."
+          }
+        ]
+      },
+      "x-priority": "important"
+    },
+    "storybook": {
+      "type": "string",
+      "description": "Add storybook support",
+      "$default": {
+        "$source": "argv",
+        "index": 2
+      },
+      "x-prompt": {
+        "message": "Do you want storybook support?",
+        "type": "list",
+        "items": [
+          {
+            "value": "true",
+            "label": "✅ yes"
+          },
+          {
+            "value": "false",
+            "label": "⛔ no"
+          }
+        ]
+      },
+      "x-priority": "important"
+    },
+    "tailwind": {
+      "type": "string",
+      "description": "Add tailwind support",
+      "$default": {
+        "$source": "argv",
+        "index": 3
+      },
+      "x-prompt": {
+        "message": "Do you want tailwind support?",
+        "type": "list",
+        "items": [
+          {
+            "value": "true",
+            "label": "✅ yes"
+          },
+          {
+            "value": "false",
+            "label": "⛔ no"
+          }
+        ]
+      },
+      "x-priority": "important"
+    }
+  },
+  "required": ["type", "name"]
+}

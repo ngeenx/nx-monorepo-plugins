@@ -1,0 +1,23 @@
+const { createGlobPatternsForDependencies } = require('@nx/angular/tailwind');
+const { join } = require('path');
+
+/**
+ * Why we are importing metronic tailwind config here?
+ * Because it's required for storybook to work properly.
+ * Normally, parent app should import it, but in this case, we need to
+ * import it in the library itself.
+ */
+// eslint-disable-next-line @nx/enforce-module-boundaries
+import { globalTailwindMetronicConfig } from '<%= rootOffset %>tailwind-metronic.config.js';
+
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  ...globalTailwindMetronicConfig,
+
+  content: [
+    ...globalTailwindMetronicConfig.content,
+
+    join(__dirname, 'src/**/!(*.spec).{ts,html,stories}'),
+    ...createGlobPatternsForDependencies(__dirname),
+  ],
+};

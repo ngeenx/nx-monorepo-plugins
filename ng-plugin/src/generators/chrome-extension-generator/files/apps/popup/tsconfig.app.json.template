@@ -1,0 +1,10 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "outDir": "<%= rootOffset %>/dist/out-tsc",
+    "types": []
+  },
+  "files": ["<%= rootOffset %>/types/index.d.ts", "src/main.ts"],
+  "include": ["<%= rootOffset %>/types/index.d.ts", "src/**/*.d.ts"],
+  "exclude": ["jest.config.ts", "src/**/*.test.ts", "src/**/*.spec.ts"]
+}

@@ -1,0 +1,19 @@
+{
+  "generators": {
+    "lib-generator": {
+      "factory": "./src/generators/lib-generator/lib-generator",
+      "schema": "./src/generators/lib-generator/schema.json",
+      "description": "Custom nest library generator"
+    },
+    "mod-generator": {
+      "factory": "./src/generators/mod-generator/module-generator",
+      "schema": "./src/generators/mod-generator/schema.json",
+      "description": "Custom nest module generator"
+    },
+    "res-generator": {
+      "factory": "./src/generators/res-generator/resource-generator",
+      "schema": "./src/generators/res-generator/schema.json",
+      "description": "Custom nest resource generator"
+    }
+  }
+}

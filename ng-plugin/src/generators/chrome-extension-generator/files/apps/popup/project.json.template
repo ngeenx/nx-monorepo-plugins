@@ -1,0 +1,96 @@
+{
+  "$schema": "<%= rootOffset %>/node_modules/nx/schemas/project-schema.json",
+  "name": "<%= name %>-popup",
+  "projectType": "application",
+  "prefix": "popup",
+  "sourceRoot": "apps/chrome-extensions/<%= name %>/popup/src",
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:browser",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "chrome-extensions/<%= name %>/pages/popup",
+        "index": "apps/chrome-extensions/<%= name %>/popup/src/index.html",
+        "main": "apps/chrome-extensions/<%= name %>/popup/src/main.ts",
+        "polyfills": ["zone.js"],
+        "tsConfig": "apps/chrome-extensions/<%= name %>/popup/tsconfig.app.json",
+        "inlineStyleLanguage": "scss",
+        "assets": [
+          "apps/chrome-extensions/<%= name %>/popup/src/favicon.ico",
+          "apps/chrome-extensions/<%= name %>/popup/src/assets"
+        ],
+        "styles": ["apps/chrome-extensions/<%= name %>/popup/src/styles.scss"],
+        "scripts": []
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "outputHashing": "none"
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "configurations": {
+        "production": {
+          "buildTarget": "<%= name %>-popup:build:production"
+        },
+        "development": {
+          "buildTarget": "<%= name %>-popup:build:development"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "buildTarget": "<%= name %>-popup:build"
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "apps/chrome-extensions/<%= name %>/popup/**/*.ts",
+          "apps/chrome-extensions/<%= name %>/popup/**/*.html"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "apps/chrome-extensions/<%= name %>/popup/jest.config.ts",
+        "passWithNoTests": true
+      },
+      "configurations": {
+        "ci": {
+          "ci": true,
+          "codeCoverage": true
+        }
+      }
+    }
+  },
+  "tags": ["type:app"]
+}

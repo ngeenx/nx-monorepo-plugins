@@ -1,0 +1,14 @@
+{
+  "generators": {
+    "lib-generator": {
+      "factory": "./src/generators/lib-generator/lib-generator",
+      "schema": "./src/generators/lib-generator/schema.json",
+      "description": "lib-generator generator"
+    },
+    "chrome-extension-generator": {
+      "factory": "./src/generators/chrome-extension-generator/chrome-extension-generator",
+      "schema": "./src/generators/chrome-extension-generator/schema.json",
+      "description": "chrome-extension-generator generator"
+    }
+  }
+}
