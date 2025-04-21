@@ -10,7 +10,7 @@ This repository contains a collection of plugins for the Nx monorepo tool. The p
 - [ng-plugin](./ng-plugin/)
   - Generators
     - [lib-generator](./ng-plugin/src/generators/lib-generator)
-    - [chrome-extension-generator](./ng-plugin/src/generators/chrome-extension-generator)
+    - [chrome-extension-generator](./ng-plugin/src/generators/chrome-extension-generator/README.md)
 - [nest-plugin](./nest-plugin/)
   - Generators
     - [lib-generator](./nest-plugin/src/generators/lib-generator)
