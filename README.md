@@ -17,7 +17,7 @@ This repository contains a collection of plugins for the Nx monorepo tool. The p
     - [mod-generator](./nest-plugin/src/generators/mod-generator)
     - [res-generator](./nest-plugin/src/generators/res-generator)
 
-## Usage
+## Installation
 
 Create `tools` directory in the root of your Nx workspace and copy this repository into it with [git submodule](https://git-scm.com/docs/git-submodule) (*also, see [Working with submodules](https://github.blog/open-source/git/working-with-submodules/)*) or [git subtree](https://www.atlassian.com/git/tutorials/git-subtree) commands.
 
@@ -47,8 +47,10 @@ Define the plugins packages in your `tsconfig.base.json` file:
 }
 ```
 
+## Usage
+
 Call the generator with the `nx` command:
 
 ```bash
-nx generate @ngeen-platform/ng-plugin:chrome-extension-generator
+nx g @ngeen-platform/ng-plugin:chrome-extension-generator
 ```
