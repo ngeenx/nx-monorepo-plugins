@@ -48,7 +48,6 @@ export async function libGeneratorGenerator(
 
   options.projectRoot = `libs/client/${options.type}/${options.name}`;
   options.rootOffset = offsetFromRoot(options.projectRoot);
-  options.prefix = 'ngn';
 
   // first run build-in angular library generator
   await angularLibraryGenerator(tree, {

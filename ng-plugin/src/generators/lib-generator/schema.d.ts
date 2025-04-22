@@ -1,5 +1,5 @@
 export interface LibGeneratorGeneratorSchema {
-  // #region CLI arguments
+  // #region CLI Arguments
 
   /**
    * Type of the library. Also it's used sub path in base `libs/client/` path.
@@ -7,9 +7,14 @@ export interface LibGeneratorGeneratorSchema {
   type: string;
 
   /**
-   * Package name in ^ngn-[a-z0-9]+$ format.
+   * Package name in ^[a-z0-9]+$ format.
    */
   name: string;
+
+  /**
+   * Component selector prefix
+   */
+  prefix: string;
 
   /**
    * Stroybook support.
@@ -23,7 +28,7 @@ export interface LibGeneratorGeneratorSchema {
 
   // #endregion
 
-  // #region Computed properties
+  // #region Computed Properties
 
   /**
    * The relative path from the root of the monorepo to the project root in `../` format.
@@ -34,11 +39,6 @@ export interface LibGeneratorGeneratorSchema {
    * The absolute path to the project root.
    */
   projectRoot: string;
-
-  /**
-   * Component selector prefix
-   */
-  prefix: string;
 
   // #endregion
 }

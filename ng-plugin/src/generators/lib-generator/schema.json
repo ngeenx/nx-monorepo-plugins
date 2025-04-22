@@ -1,19 +1,29 @@
 {
   "$schema": "https://json-schema.org/schema",
   "$id": "LibGenerator",
-  "title": "Client Lib Generator",
+  "title": "Angular Lib Generator",
   "description": "This generator creates a new client library. It is used to create shared libraries, platform libraries, and admin libraries.",
   "type": "object",
   "properties": {
     "name": {
       "type": "string",
-      "description": "Name of the library. It should be a valid npm package name.",
-      "pattern": "^ngn-[a-z0-9-]+$",
+      "description": "Name of the library (in ^[a-z0-9-]+$).",
+      "pattern": "^[a-z0-9-]+$",
       "$default": {
         "$source": "argv",
         "index": 0
       },
-      "x-prompt": "What project name would you like to use? (It must start with 'ngn-' prefix)"
+      "x-prompt": "What project name would you like to use?"
+    },
+    "prefix": {
+      "type": "string",
+      "description": "Component selector prefix (in ^[a-z-]+$).",
+      "pattern": "^[a-z-]+$",
+      "$default": {
+        "$source": "argv",
+        "index": 0
+      },
+      "x-prompt": "What prefix would you like to use for the components in this library? (e.g. 'ngn')",
     },
     "type": {
       "type": "string",
