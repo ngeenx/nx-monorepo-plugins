@@ -7,7 +7,7 @@ This is a generator for creating an Angular based Chrome extension. It provides 
 Start by generating a new Chrome extension project using the following command:
 
 ```bash
-nx generate @ngeen-platform/ng-plugin:chrome-extension-generator
+nx g @ngeen-platform/ng-plugin:chrome-extension-generator
 ```
 
 Let's assume you have a project named `myext`. The generator will create the following structure:

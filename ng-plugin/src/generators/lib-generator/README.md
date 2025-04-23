@@ -7,5 +7,5 @@ This is a generator for creating an Angular library. It provides a basic structu
 Start by generating a new library project using the following command:
 
 ```bash
-nx generate @ngeen-platform/ng-plugin:lib-generator
+nx g @ngeen-platform/ng-plugin:lib-generator
 ```
