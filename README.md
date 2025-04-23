@@ -21,12 +21,20 @@ This repository contains a collection of plugins for the Nx monorepo tool. The p
 
 These plugins are designed to work with the NGEENX monorepo tools. Above plugins are require some dependencies to be installed in your Nx workspace. You can install them using the following commands:
 
+### Common Dependencies
+
 ```bash
 nx add @nx/devkit
 nx add @nx/vite
 nx add @nx/eslint
 nx add @nx/eslint-plugin
 pnpm i @eslint/eslintrc @eslint/js @typescript-eslint/eslint-plugin eslint-plugin-unused-imports jsonc-eslint-parser -D
+```
+
+### Angular Dependencies
+
+```bash
+pnpm i angular-eslint -D
 ```
 
 And your eslint configs must be in `eslint.config.js` file.
