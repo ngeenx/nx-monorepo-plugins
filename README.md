@@ -22,6 +22,7 @@ This repository contains a collection of plugins for the Nx monorepo tool. The p
 These plugins are designed to work with the NGEENX monorepo tools. Above plugins are require some dependencies to be installed in your Nx workspace. You can install them using the following commands:
 
 ```bash
+nx add @nx/devkit
 nx add @nx/vite
 nx add @nx/eslint
 nx add @nx/eslint-plugin
