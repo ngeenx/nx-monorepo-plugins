@@ -1,4 +1,4 @@
-# nx-monorepo-plugins
+# nx-monorepo-plugins (WIP)
 
 This repository contains a collection of plugins for the Nx monorepo tool. The plugins are designed to enhance the functionality of Nx and provide additional capabilities for managing and building monorepos by [NGEENX](https://github.com/ngeenx).
 
@@ -16,6 +16,19 @@ This repository contains a collection of plugins for the Nx monorepo tool. The p
     - [lib-generator](./nest-plugin/src/generators/lib-generator)
     - [mod-generator](./nest-plugin/src/generators/mod-generator)
     - [res-generator](./nest-plugin/src/generators/res-generator)
+
+## Requirements
+
+These plugins are designed to work with the NGEENX monorepo tools. Above plugins are require some dependencies to be installed in your Nx workspace. You can install them using the following commands:
+
+```bash
+nx add @nx/vite
+nx add @nx/eslint
+nx add @nx/eslint-plugin
+pnpm i @eslint/eslintrc @eslint/js @typescript-eslint/eslint-plugin eslint-plugin-unused-imports jsonc-eslint-parser -D
+```
+
+And your eslint configs must be in `eslint.config.js` file.
 
 ## Installation
 
