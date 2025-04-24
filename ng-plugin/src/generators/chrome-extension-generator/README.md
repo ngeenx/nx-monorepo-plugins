@@ -35,3 +35,18 @@ pnpm run myext:dev
 2. Enable "Developer mode" by toggling the switch in the page.
 3. Click on "Load unpacked" and select the `chrome-extensions/myext` directory.
 4. Your extension should now be loaded and visible in the extensions list.
+
+## HMR Support
+
+When you start the dev server, it will automatically build the extension and watch for changes. The extension will be reloaded automatically when you make changes to the source code. But HMR is only supported for the following apps:
+
+- `myext-devtools-panel`
+- `myext-options`
+- `myext-popup`
+
+`myext-background-script` and `myext-content-script` are not supported for HMR. You will need to reload the extension manually in the browser after making changes to these apps.
+
+Also, the dev server will not reload the extension automatically when you make changes to the `manifest.json` file. You will need to reload the extension manually in the browser after making changes to the `manifest.json` file.
+
+> [!IMPORTANT]  
+> There is no webpack or vite like error screens. If some feature or change is not working, please check the console for errors.
