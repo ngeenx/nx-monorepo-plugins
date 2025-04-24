@@ -34,7 +34,8 @@ pnpm i @eslint/eslintrc @eslint/js @typescript-eslint/eslint-plugin eslint-plugi
 ### Angular Dependencies
 
 ```bash
-pnpm i angular-eslint -D
+pnpm i @angular/core zone.js
+pnpm i angular-eslint @angular/platform-browser -D
 ```
 
 And your eslint configs must be in `eslint.config.js` file.
